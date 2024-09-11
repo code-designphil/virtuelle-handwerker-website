@@ -8,17 +8,15 @@ const canvas = document.querySelector('.video-scrolling');
 const arrow = document.querySelector('.arrow-holder');
 const context = canvas.getContext('2d');
 
-const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".jpg";
+const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".webp";
 
-const framesLastIndex = 336;
-
-let lastLoadedIndex = 0;
+const framesLastIndex = 168;
 
 /**
  * Initializes the canvas and loads the first frame.
  */
-canvas.height = 2160;
-canvas.width = 3840;
+canvas.height = 1080;
+canvas.width = 1920;
 const img = new Image();
 img.src = currentFrame(0);
 img.onload = () => {
@@ -51,26 +49,18 @@ window.addEventListener('scroll', () => {
     if (scrollFraction > 0.015) {
         arrow.classList.add('hidden-opacity');
     }
-    
+
     requestAnimationFrame(() => updateImage(frameIndex));
 });
 
 /**
  * If there are only less than 10% of frames left, this function will load the next 17 (5%) frames.
  */
-const preloadImages = (currentIndex) => {
-    if (!(currentIndex >= lastLoadedIndex * 0.9) || lastLoadedIndex >= framesLastIndex) return;
-
-    for (let i = lastLoadedIndex + 1; i < lastLoadedIndex + 17; i++) {
+const preloadImages = () => {
+    for (let i = 0; i < framesLastIndex; i++) {
         const img = new Image();
-        if (i > framesLastIndex) {
-            lastLoadedIndex = framesLastIndex;
-            return;
-        }
         img.src = currentFrame(i);
     }
-
-    lastLoadedIndex += 33;
 }
 
 preloadImages(0);
