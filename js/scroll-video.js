@@ -55,7 +55,7 @@ window.addEventListener('scroll', () => {
 });
 
 /**
- * If there are only less than 10% of frames left, this function will load the next 17 (5%) frames.
+ * Preload all images.
  */
 const preloadImages = () => {
     for (let i = 0; i < framesLastIndex; i++) {
