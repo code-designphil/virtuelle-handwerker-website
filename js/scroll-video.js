@@ -63,6 +63,7 @@ const preloadImages = () => {
         img.src = currentFrame(i);
         
         progressBar.style.width = `${Math.ceil(i / framesLastIndex * 100)}%`;
+        setTimeout(() => progressBar.parentElement.classList.add("hidden-opacity"), 1000);
     }
 }
 
