@@ -83,11 +83,19 @@ li {
     background-color: rgba(0, 0, 0, 1);
 }
 
+.placholder-xl {
+    height: 100vh;
+}
+
 .p-xl-top {
-    padding-top: 10em;
+    padding-top: 20em;
 }
 
 .p-xl-bottom {
+    padding-top: 20em;
+}
+
+.p-md-top {
     padding-top: 10em;
 }
 
@@ -164,4 +172,52 @@ li {
     max-height: 100vh;
     min-width: 100vw;
     z-index: -1;
+}
+
+/* Fade In */
+@keyframes moveUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-1 {
+    display: block;
+    opacity: 0;
+}
+
+.fade-in-2 {
+    display: block;
+    opacity: 0;
+}
+
+.fade-in-3 {
+    display: block;
+    opacity: 0;
+}
+
+.fade-in-4 {
+    display: block;
+    opacity: 0;
+}
+
+.fade-in-1.in-view {
+    animation: moveUp 0.5s ease-in-out 0.3s forwards;
+}
+
+.fade-in-2.in-view {
+    animation: moveUp 0.5s ease-in-out 0.45s forwards;
+}
+
+.fade-in-3.in-view {
+    animation: moveUp 0.5s ease-in-out 0.60s forwards;
+}
+
+.fade-in-4.in-view {
+    animation: moveUp 0.5s ease-in-out 0.75s forwards;
 }
