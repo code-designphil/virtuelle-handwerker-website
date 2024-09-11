@@ -61,9 +61,6 @@ const preloadImages = () => {
     for (let i = 0; i < framesLastIndex; i++) {
         const img = new Image();
         img.src = currentFrame(i);
-        
-        const progress = Math.ceil(i / framesLastIndex * 100);
-        progressBar.style.width = `${progress}%`;
     }
 }
 
