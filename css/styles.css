@@ -108,6 +108,10 @@ li {
     flex-shrink: 1;
 }
 
+.overflow-hidden {
+    overflow: hidden;
+}
+
 .two-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
