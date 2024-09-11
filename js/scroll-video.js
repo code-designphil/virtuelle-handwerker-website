@@ -5,12 +5,13 @@
 const html = document.documentElement;
 const contentElements = document.querySelectorAll('.content');
 const canvas = document.querySelector('.video-scrolling');
-const arrow = document.querySelector('.arrow-holder');
+const arrow = document.querySelector('.arrow');
+const progressBar = document.querySelector('.progress-bar');
 const context = canvas.getContext('2d');
 
 const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".webp";
 
-const framesLastIndex = 168;
+const framesLastIndex = 336;
 
 /**
  * Initializes the canvas and loads the first frame.
@@ -60,7 +61,9 @@ const preloadImages = () => {
     for (let i = 0; i < framesLastIndex; i++) {
         const img = new Image();
         img.src = currentFrame(i);
+        
+        progressBar.style.width = `${Math.ceil(i / framesLastIndex * 100)}%`;
     }
 }
 
-preloadImages(0);
+preloadImages();
