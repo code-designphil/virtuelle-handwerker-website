@@ -3,6 +3,7 @@
  */
 
 const html = document.documentElement;
+const contentElements = document.querySelectorAll('.content');
 const canvas = document.querySelector('.video-scrolling');
 const context = canvas.getContext('2d');
 
@@ -41,11 +42,16 @@ window.addEventListener('scroll', () => {
     const scrollFraction = scrollTop / maxScrollTop;
     const frameIndex = Math.min(framesLastIndex, Math.floor(scrollFraction * framesLastIndex));
 
+    contentElements.forEach(content => {
+        const alpha = 1 - frameIndex * 10 / framesLastIndex;
+        content.style.backgroundColor = `rgba(0, 0, 0, ${(alpha > 0.4) ? alpha : 0.4})`;
+    });
+    
     requestAnimationFrame(() => updateImage(frameIndex));
 });
 
 /**
- * If there are only less than 10% of frames left, this funktion will load the next 17 (5%) frames.
+ * If there are only less than 10% of frames left, this function will load the next 17 (5%) frames.
  */
 const preloadImages = (currentIndex) => {
     if (!(currentIndex >= lastLoadedIndex * 0.9) || lastLoadedIndex >= framesLastIndex) return;
