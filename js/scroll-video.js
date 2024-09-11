@@ -6,7 +6,7 @@ const html = document.documentElement;
 const contentElements = document.querySelectorAll('.content');
 const canvas = document.querySelector('.video-scrolling');
 const arrow = document.querySelector('.arrow');
-const progressBar = document.querySelector('.progress-bar');
+const busyIndicator = document.querySelector('.busy-indicator');
 const context = canvas.getContext('2d');
 
 const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".webp";
@@ -64,10 +64,11 @@ const preloadImages = () => {
         
         const progress = Math.ceil(i / framesLastIndex * 100);
         progressBar.style.width = `${progress}%`;
-        if (progress == 100) {
-           setTimeout(() => progressBar.parentElement.classList.add("hidden-opacity"), 200);
-        }
     }
 }
+
+window.addEventListener('load', function() {
+    busyIndicator.classList.add('hidden');
+});
 
 preloadImages();
