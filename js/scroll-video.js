@@ -11,7 +11,7 @@ const context = canvas.getContext('2d');
 
 const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".webp";
 
-const framesLastIndex = 336;
+const framesLastIndex = 168;
 
 /**
  * Initializes the canvas and loads the first frame.
