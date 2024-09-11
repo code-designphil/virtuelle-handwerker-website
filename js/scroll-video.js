@@ -5,6 +5,7 @@
 const html = document.documentElement;
 const contentElements = document.querySelectorAll('.content');
 const canvas = document.querySelector('.video-scrolling');
+const arrow = document.querySelector('.arrow-holder');
 const context = canvas.getContext('2d');
 
 const currentFrame = index => "resources/frames/video-4k-" + index.toString().padStart(3, '0') + ".jpg";
@@ -46,6 +47,10 @@ window.addEventListener('scroll', () => {
         const alpha = 1 - frameIndex * 10 / framesLastIndex;
         content.style.backgroundColor = `rgba(0, 0, 0, ${(alpha > 0.4) ? alpha : 0.4})`;
     });
+
+    if (scrollFraction > 0.015) {
+        arrow.classList.add('hidden-opacity');
+    }
     
     requestAnimationFrame(() => updateImage(frameIndex));
 });
