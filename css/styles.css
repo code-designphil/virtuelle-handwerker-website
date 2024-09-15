@@ -74,7 +74,7 @@ li {
 }
 
 .gutter-outside {
-    padding: 0 4em;
+    padding: 0 4vw;
 }
 
 .content {
@@ -112,6 +112,10 @@ li {
     display: none;
 }
 
+.show-on-mobile {
+    display: none;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
@@ -128,6 +132,10 @@ li {
 
 .small {
     font-size: 0.8em;
+}
+
+.center {
+    text-align: center;
 }
 
 .black {
@@ -286,4 +294,81 @@ li {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+
+/* Tablet */
+@media (max-width: 992px) {
+    body {
+        font-size: 16px;
+    }
+
+    .profile-pic-holder {
+        width: 75px;
+        height: 75px;
+    }
+
+    .profile-pic-holder img {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 2.8em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h4 {
+        font-size: 0.8em;
+    }
+
+    .two-columns {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .show-on-mobile {
+        display: block;
+    }
+
+    .developer-wrapper {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .developer-holder {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic-holder {
+        width: 75px;
+        height: 75px;
+    }
+
+    .profile-pic-holder img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .people-heading {
+        margin-top: 50px;
+        text-align: center;
+    }
 }
