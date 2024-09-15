@@ -138,10 +138,6 @@ li {
     text-align: center;
 }
 
-.black {
-    color: #000;
-}
-
 .hidden-opacity {
     opacity: 0;
 }
@@ -219,6 +215,7 @@ li {
 
 .video-wrapper {
     width: 100vw;
+    color: #000;
     background-color: #fff;
     z-index: 1;
 }
